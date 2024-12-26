@@ -33,7 +33,8 @@ public class App
 //        l.duplicateFromArray();
 //        l.groupByEvenAndOdd();
 //        l.groupByVowel();
-        l.sumOfDigits();
+//        l.sumOfDigits();
+        l.findMaxUsingArray();
     }
 
 }

@@ -327,10 +327,16 @@ public class LambdaUse {
     }
 
     public void sumOfDigits(){
-        int number = 345;
+        int number = 945;
         Integer collect = Arrays.stream(String.valueOf(number).split(""))
                 .collect(Collectors.summingInt(Integer::parseInt));
         System.out.println(collect);
     }
+
+     public void findMaxUsingArray(){
+         int arr1[] = {2,3,3,1,9,2};
+         OptionalInt max = Arrays.stream(arr1).max();
+         System.out.println(max);
+     }
 
 }
