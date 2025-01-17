@@ -337,8 +337,7 @@ public class LambdaUse {
          int arr1[] = {2,3,3,1,9,2};
          OptionalInt max = Arrays.stream(arr1).max();
          System.out.println(max);
-         System.out.println("Success");
-         System.out.println("Changes");
+         System.out.println("Some changes occur");
      }
 
 //
