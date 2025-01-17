@@ -1,5 +1,6 @@
 package com.example;
 
+import java.io.BufferedReader;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
@@ -108,7 +109,6 @@ public class LambdaUse {
     }
 
     public void partitionEvenOdd(){
-
         ArrayList<Integer> al = new ArrayList<>();
         for(int i=1;i<=50;i++){
             al.add(i);
@@ -337,6 +337,9 @@ public class LambdaUse {
          int arr1[] = {2,3,3,1,9,2};
          OptionalInt max = Arrays.stream(arr1).max();
          System.out.println(max);
+         System.out.println("success");
      }
+
+//
 
 }
