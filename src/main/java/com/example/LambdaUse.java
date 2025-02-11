@@ -5,6 +5,7 @@ import java.lang.reflect.Array;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static java.util.Collections.max;
 
@@ -202,7 +203,7 @@ public class LambdaUse {
         al.add(40);
         al.add(1);
 
-        Integer maximum = al.stream().max(Comparator.naturalOrder()).orElseThrow(() -> new RuntimeException("No such element"));
+        Integer maximum = al.stream().max(Comparator.naturalOrder()).get();
         System.out.println(maximum);
 
 //        al.stream().sorted(Comparator.reverseOrder()).limit(1)
@@ -340,6 +341,88 @@ public class LambdaUse {
          System.out.println("Some changes occur");
      }
 
-//
+     public void plusMinusNumber(){
+        Integer arr[] = {1,2,3,4};
+         List<Integer> collect = Arrays.stream(arr).flatMap(i -> Stream.of(i, -i)).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void mergerTwoArray(){
+        Integer arr[][] = {{1,2,3},{4,5,6}};
+         List<Integer> collect = Arrays.stream(arr).flatMap(Arrays::stream).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void mergeTwoList(){
+         List<String> example = Arrays.asList("hello","world");
+         List<String> collect = example.stream().map(s -> s.split("")).flatMap(Arrays::stream).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void evenNumbers(){
+         Integer arr[][] = {{1,2,3},{4,5,6}};
+         List<Integer> collect = Arrays.stream(arr).flatMap(Arrays::stream).filter(i -> i % 2 == 0).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void listOfListOfIntegers(){
+         List<List<Integer>> listOfLists = Arrays.asList(
+                 Arrays.asList(1, 2, 3),
+                 Arrays.asList(4, 5),
+                 Arrays.asList(6, 7, 8)
+         );
+         List<Integer> collect = listOfLists.stream().flatMap(List::stream).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void listOfSentenceIntoWord(){
+         List<String> sentences = Arrays.asList(
+                 "The quick brown fox",
+                 "jumps over the lazy dog"
+         );
+         List<String> collect = sentences.stream().map(s -> s.split(" ")).flatMap(Arrays::stream).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void arraysOfString(){
+         List<String[]> arrayList = Arrays.asList(
+                 new String[] {"apple", "banana", "cherry"},
+                 new String[] {"date", "elderberry", "fig"},
+                 new String[] {"grape", "honeydew"}
+         );
+         List<String> collect = arrayList.stream().flatMap(Arrays::stream).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void getAllDigitFromList(){
+         List<Integer> numbers = Arrays.asList(123, 456, 789);
+         List<String> collect = numbers.stream().flatMap(i -> Arrays.stream(String.valueOf(i).split(""))).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void mapOfList(){
+         Map<String, List<Integer>> map = new HashMap<>();
+         map.put("A", Arrays.asList(1, 2, 3));
+         map.put("B", Arrays.asList(4, 5));
+         map.put("C", Arrays.asList(6, 7, 8));
+         List<Integer> collect = map.values().stream().flatMap(List::stream).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void flattenFilterEvenNumber(){
+         List<List<Integer>> listOfLists = Arrays.asList(
+                 Arrays.asList(1, 2, 3),
+                 Arrays.asList(4, 5, 6),
+                 Arrays.asList(7, 8, 9)
+         );
+         List<Integer> collect = listOfLists.stream().flatMap(List::stream).filter(i -> i % 2 == 0).collect(Collectors.toList());
+         System.out.println(collect);
+     }
+
+     public void flattenAfterSquare(){
+         Integer arr[][] = {{1,2,3},{1,4,9}};
+         List<Integer> collect = Arrays.stream(arr).flatMap(Arrays::stream).map(i -> i * i).collect(Collectors.toList());
+         System.out.println(collect);
+     }
 
 }

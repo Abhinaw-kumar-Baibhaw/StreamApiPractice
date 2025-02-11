@@ -34,7 +34,18 @@ public class App
 //        l.groupByEvenAndOdd();
 //        l.groupByVowel();
 //        l.sumOfDigits();
-        l.findMaxUsingArray();
+//        l.findMaxUsingArray();
+//        l.plusMinusNumber();
+//        l.mergerTwoArray();
+//        l.mergeTwoList();
+//        l.evenNumbers();
+//        l.listOfListOfIntegers();
+//        l.listOfSentenceIntoWord();
+//        l.arraysOfString();
+//        l.getAllDigitFromList();
+//        l.mapOfList();
+//        l.flattenFilterEvenNumber();
+        l.flattenAfterSquare();
     }
 
 }
