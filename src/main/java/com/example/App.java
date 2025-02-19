@@ -45,7 +45,11 @@ public class App
 //        l.getAllDigitFromList();
 //        l.mapOfList();
 //        l.flattenFilterEvenNumber();
-        l.flattenAfterSquare();
+//        l.flattenAfterSquare();
+        l.removeSpace();
+        l.changeIntoUpperCase();
+        l.descendingOrder();
+        l.stringWithSameLength();
     }
 
 }

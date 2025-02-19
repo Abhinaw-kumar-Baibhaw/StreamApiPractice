@@ -425,4 +425,53 @@ public class LambdaUse {
          System.out.println(collect);
      }
 
+
+    public void removeSpace(){
+        List<String> l = new ArrayList<>();
+        l.add("apple");
+        l.add(" ");
+        l.add("banana");
+        l.add(" ");
+        l.add("java");
+        l.add(" ");
+        l.add("abhinaw");
+        l.add(" ");
+        l.stream().filter(i -> !i.isEmpty()).forEach(System.out::print);
+        System.out.println();
+    }
+
+    public void changeIntoUpperCase(){
+        List<String> l = new ArrayList<>();
+        l.add("apple");
+        l.add(" ");
+        l.add("banana");
+        l.add(" ");
+        l.add("java");
+        l.add(" ");
+        l.add("abhinaw");
+        l.add(" ");
+        l.stream().filter(i -> !i.isEmpty()).map(String::toUpperCase).forEach(System.out::print);
+    }
+
+    public void descendingOrder(){
+        List<String> l = new ArrayList<>();
+        l.add("apple");
+        l.add(" ");
+        l.add("banana");
+        l.add(" ");
+        l.add("java");
+        l.add(" ");
+        l.add(" ");
+        l.add(" ");
+        l.add("abhinaw");
+        l.add(" ");
+        l.stream().filter(i -> !i.equals(" ")).map(String::toUpperCase).sorted(Comparator.reverseOrder()).collect(Collectors.toList()).forEach(System.out::println);
+    }
+
+    public void stringWithSameLength(){
+        Stream<String> l = Stream.of("Apple","Java","Spring","HTML","Shruti","Dhruv","Pallavi");
+        Map<Integer, Long> t =  l.collect(Collectors.groupingBy(String::length,Collectors.counting()));
+        t.entrySet().forEach(System.out::println);
+    }
+
 }
