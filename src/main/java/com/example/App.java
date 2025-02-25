@@ -46,10 +46,28 @@ public class App
 //        l.mapOfList();
 //        l.flattenFilterEvenNumber();
 //        l.flattenAfterSquare();
-        l.removeSpace();
-        l.changeIntoUpperCase();
-        l.descendingOrder();
-        l.stringWithSameLength();
+//        l.removeSpace();
+//        l.changeIntoUpperCase();
+//        l.descendingOrder();
+//        l.stringWithSameLength();
+//        l.map1();
+//        l.map2();
+//          l.map3();
+//          l.map4();
+//        l.map5();
+//          l.map6();
+
+          QuestionPractice q = new QuestionPractice();
+//          q.binarySearch();
+//          q.swapWithoutThirdVariable();
+//          q.sumIn2D();
+//          q.maxIn2D();
+//          q.merge2SortedArray();
+//          q.removeDuplicateInArraylist();
+//        q.reverseArrayList();
+//        q.rotateArrayMain();
+//        q.frequencyInArrayList();
+        q.pickNumber();
     }
 
 }

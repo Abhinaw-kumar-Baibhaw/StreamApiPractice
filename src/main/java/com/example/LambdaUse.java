@@ -1,8 +1,7 @@
 package com.example;
 
-import java.io.BufferedReader;
-import java.lang.reflect.Array;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -473,5 +472,80 @@ public class LambdaUse {
         Map<Integer, Long> t =  l.collect(Collectors.groupingBy(String::length,Collectors.counting()));
         t.entrySet().forEach(System.out::println);
     }
+
+    public void map1(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 60);
+        map.put("C", 80);
+        map.put("D", 30);
+
+        map.entrySet().stream().forEach(entry -> System.out.println(entry.getKey() +" "+ entry.getValue()));
+    }
+
+    public void map2(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 60);
+        map.put("C", 80);
+        map.put("D", 30);
+
+        map.entrySet().stream().forEach(entry ->{
+            if(entry.getValue()>50){
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            }
+        });
+    }
+
+    public void map3(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 20);
+        map.put("B", 50);
+        map.put("C", 30);
+        map.put("D", 60);
+        AtomicInteger max = new AtomicInteger(Integer.MIN_VALUE);
+        map.entrySet().stream().forEach(entry->{
+           max.set(Math.max(max.get(), entry.getValue()));
+        });
+        System.out.println(max);
+    }
+
+    public void map4(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 50);
+        map.put("C", 30);
+        map.put("D", 40);
+        map.entrySet().stream().sorted(Map.Entry.comparingByValue()).forEach(System.out::println);
+    }
+
+    public void map5() {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 20);
+        map.put("C", 10);
+        map.put("D", 30);
+        map.put("E", 20);
+
+        Map<Integer, Integer> map1 = new HashMap<>();
+        map.values().forEach(value -> {
+            map1.put(value, map1.getOrDefault(value, 0) + 1);
+        });
+        map1.forEach((key, value) -> System.out.println("Value: " + key + " occurred " + value + " times"));
+    }
+
+    public void map6(){
+        Map<String, Integer> map = new HashMap<>();
+        map.put("A", 10);
+        map.put("B", 20);
+        map.put("C", 30);
+        map.put("D", 40);
+        AtomicInteger sum = new AtomicInteger();
+       map.entrySet().stream().forEach(entry ->{
+           sum.set(sum.get() + entry.getValue());
+       });
+        System.out.println(sum.get()/map.size());
+    }
+
 
 }
