@@ -167,4 +167,11 @@ public class QuestionPractice {
         List<Integer> collect = l.stream().filter(i -> Integer.toString(i).startsWith("1")).collect(Collectors.toList());
         System.out.println(collect);
     }
+    public void swap(){
+        StringBuffer s1 = new StringBuffer("Abhinaw");
+        StringBuffer s2 = new StringBuffer("Baibhaw");
+        s1.append(s2);
+        System.out.println(s1.substring(0,7));
+        System.out.println(s1.substring(7,14));
+    }
 }

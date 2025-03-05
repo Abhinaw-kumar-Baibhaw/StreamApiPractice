@@ -67,7 +67,8 @@ public class App
 //        q.reverseArrayList();
 //        q.rotateArrayMain();
 //        q.frequencyInArrayList();
-        q.pickNumber();
+//        q.pickNumber();
+        q.swap();
     }
 
 }
