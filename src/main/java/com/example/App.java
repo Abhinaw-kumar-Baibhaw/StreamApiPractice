@@ -1,5 +1,7 @@
 package com.example;
 
+import model.CsvFile;
+
 /**
  * Hello world!
  *
@@ -68,7 +70,10 @@ public class App
 //        q.rotateArrayMain();
 //        q.frequencyInArrayList();
 //        q.pickNumber();
-        q.swap();
+//        q.swap();
+
+        CsvFile c = new CsvFile();
+        c.fetch();
     }
 
 }
