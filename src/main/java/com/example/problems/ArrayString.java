@@ -198,6 +198,124 @@ public class ArrayString {
         }
     }
 
+    public void problem16() {
+        String s = "hello world";
+        char target = 'o';
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == target) {
+                count++;
+            }
+        }
+        System.out.println("Occurrence of '" + target + "': " + count);
+    }
+
+    public void problem17() {
+        String s = "abhinaw";
+        String result = s.replaceAll("(.)\\1", "$1");
+        System.out.println("String after removing consecutive duplicates: " + result);
+    }
+
+    public void problem18() {
+        int num = 12345;
+        int reversed = 0;
+        while (num != 0) {
+            reversed = reversed * 10 + num % 10;
+            num /= 10;
+        }
+        System.out.println("Reversed integer: " + reversed);
+    }
+
+    public void problem19() {
+        String s = "123.45";
+        try {
+            Double.parseDouble(s);
+            System.out.println("Valid number");
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number");
+        }
+    }
+
+    public void problem20() {
+        String s = "abcbca";
+        HashMap<Character, Integer> frequency = new HashMap<>();
+        for (char ch : s.toCharArray()) {
+            frequency.put(ch, frequency.getOrDefault(ch, 0) + 1);
+        }
+        for (char key : frequency.keySet()) {
+            if (frequency.get(key) == 1) {
+                System.out.println("First non-repeating character: " + key);
+                break;
+            }
+        }
+    }
+
+    public void problem21() {
+        String[] strs = {"apple", "ape", "april"};
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (strs[i].indexOf(prefix) != 0) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.isEmpty()) {
+                    break;
+                }
+            }
+        }
+        System.out.println("Longest common prefix: " + prefix);
+    }
+
+    public void problem22() {
+        int[] arr = {1, 2, 4, 6, 3, 7, 8};
+        int total = (arr.length + 1) * (arr.length + 2) / 2;
+        for (int num : arr) {
+            total -= num;
+        }
+        System.out.println("Missing number: " + total);
+    }
+
+    public void problem23() {
+        String s = "listen";
+        String t = "silent";
+        if (s.length() != t.length()) {
+            System.out.println("Not anagrams");
+        } else {
+            char[] sArr = s.toCharArray();
+            char[] tArr = t.toCharArray();
+            Arrays.sort(sArr);
+            Arrays.sort(tArr);
+            if (Arrays.equals(sArr, tArr)) {
+                System.out.println("Anagrams");
+            } else {
+                System.out.println("Not anagrams");
+            }
+        }
+    }
+
+    public void problem24() {
+        int[] arr = {1, 2, 3, 4, 5};
+        int k = 2;
+        int[] rotated = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            rotated[(i + k) % arr.length] = arr[i];
+        }
+        System.out.println("Rotated array: " + Arrays.toString(rotated));
+    }
+
+    public void problem25() {
+        String s = "abcddcba";
+        int left = 0, right = s.length() - 1;
+        boolean isPalindrome = true;
+        while (left < right) {
+            if (s.charAt(left) != s.charAt(right)) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+        System.out.println("Is palindrome: " + isPalindrome);
+    }
+
     public static void main(String[] args) {
         ArrayString as = new ArrayString();
 //        as.problem1();
@@ -211,10 +329,19 @@ public class ArrayString {
 //        as.problem9();
 //        as.problem10();
 //        as.problem11();
-//        as.problem11();
 //        as.problem12();
 //        as.problem13();
 //        as.problem14();
         as.problem15();
+        as.problem16();
+        as.problem17();
+        as.problem18();
+        as.problem19();
+        as.problem20();
+        as.problem21();
+        as.problem22();
+        as.problem23();
+        as.problem24();
+        as.problem25();
     }
 }
